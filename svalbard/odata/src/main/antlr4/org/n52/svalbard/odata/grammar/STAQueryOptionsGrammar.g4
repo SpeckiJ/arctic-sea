@@ -138,7 +138,7 @@ geoExpr
    ;
 
 memberExpr
-   : ALPHAPLUS (SLASH ALPHAPLUS)*
+   : (ALPHAPLUS SLASH)*  (ALPHAPLUS | Time_LLC)
    ;
 
 textMethodCallExpr

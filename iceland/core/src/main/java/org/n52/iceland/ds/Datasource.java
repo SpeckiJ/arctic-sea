@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2020 52°North Initiative for Geospatial Open Source
+ * Copyright 2015-2021 52°North Initiative for Geospatial Open Source
  * Software GmbH
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -268,5 +268,7 @@ public interface Datasource extends Serializable {
     void executePostCreateSchema(Map<String, Object> databaseSettings);
 
     void checkPostCreation(Properties properties);
+
+    Set<String> getSpringProfiles();
 
 }

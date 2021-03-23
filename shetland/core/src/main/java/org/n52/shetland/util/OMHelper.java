@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2020 52°North Initiative for Geospatial Open Source
+ * Copyright 2015-2021 52°North Initiative for Geospatial Open Source
  * Software GmbH
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -47,6 +47,8 @@ import org.n52.shetland.ogc.om.values.TLVTValue;
 import org.n52.shetland.ogc.om.values.TVPValue;
 import org.n52.shetland.ogc.om.values.TextValue;
 import org.n52.shetland.ogc.om.values.TimeRangeValue;
+import org.n52.shetland.ogc.om.values.TimeValue;
+import org.n52.shetland.ogc.om.values.TrajectoryValue;
 import org.n52.shetland.ogc.om.values.UnknownValue;
 import org.n52.shetland.ogc.om.values.Value;
 import org.n52.shetland.ogc.om.values.XmlValue;
@@ -283,8 +285,18 @@ public final class OMHelper {
         }
 
         @Override
+        public String visit(TrajectoryValue value) throws RuntimeException {
+            return defaultValue();
+        }
+
+        @Override
         public String visit(TimeRangeValue value) {
             return defaultValue();
+        }
+
+        @Override
+        public String visit(TimeValue value) throws RuntimeException {
+            return  OmConstants.OBS_TYPE_TEMPORAL_OBSERVATION;
         }
 
         @Override
